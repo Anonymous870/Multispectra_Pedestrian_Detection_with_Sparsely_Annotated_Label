@@ -261,7 +261,7 @@ def train_epoch(s_model: SSD300_3Way,
             loss_vis,    _, _,           _ = criterion(predicted_locs_vis,    predicted_scores_vis,    boxes, labels)  # scalar
             loss_lwir,   _, _,           _ = criterion(predicted_locs_lwir,   predicted_scores_lwir,   boxes, labels)  # scalar
             loss = loss_fusion + loss_vis + loss_lwir
-        elif config.train.train_mode == "ours": # ACM MM implementation
+        elif config.train.train_mode == "ours":
             with torch.no_grad():
                 locs_fusion, classes_scores_fusion, locs_vis, classes_scores_vis, locs_lwir, classes_scores_lwir, _, _, _ = t_model(image_vis, image_lwir)  # (N, 8732, 4), (N, 8732, n_classes)
                 locs_fusion2, classes_scores_fusion2, locs_vis2, classes_scores_vis2, locs_lwir2, classes_scores_lwir2, _, _, _ = t_model(image_vis2, image_lwir2)  # (N, 8732, 4), (N, 8732, n_classes)
