@@ -796,7 +796,6 @@ class SSD300(nn.Module):
                 image_labels = image_labels[indices]
                 image_scores = image_scores[indices]
 
-            # 결과 저장
             all_images_boxes.append(image_boxes)
             all_images_labels.append(image_labels)
             all_images_scores.append(image_scores)
